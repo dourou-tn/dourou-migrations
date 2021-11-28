@@ -1,0 +1,10 @@
+{
+  "dev": {
+    "host": "localhost",
+    "user": "root",
+    "password": "123456",
+    "database": "dourou",
+    "driver": "mysql",
+    "multipleStatements": true
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "dourou-migrations",
+  "version": "0.0.1",
+  "description": "All migration for dourou.tn",
+  "main": "index.js",
+  "author": "Jrb Youssef <jrb.youssef@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "migrate": "db-migrate"
+  },
+  "dependencies": {
+    "db-migrate": "^0.11.13",
+    "db-migrate-mysql": "^2.2.0"
+  }
+}
