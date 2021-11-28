@@ -1,6 +1,10 @@
 # Dourou Migrations
 All migrations for **dourou.tn**.
 
+**TODOS**
+- [ ] Environment variables in database.json
+
+
 ## 1. Roles
      - id
      - name
@@ -22,5 +26,3 @@ All migrations for **dourou.tn**.
      - updated_at
 
 
-**TODO**
-- [ ] Environment variables in database.json
