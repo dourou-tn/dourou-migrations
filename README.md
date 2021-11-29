@@ -3,6 +3,7 @@ All migrations for **dourou.tn**.
 
 **TODOS**
 - [ ] Environment variables in database.json
+- [X] Fix users UNIQUE fields! firstname & lastname
 
 
 ## 1. Roles
