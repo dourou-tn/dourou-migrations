@@ -1,6 +1,6 @@
 {
   "name": "dourou-migrations",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "description": "All migration for dourou.tn",
   "main": "index.js",
   "author": "Jrb Youssef <jrb.youssef@gmail.com>",
