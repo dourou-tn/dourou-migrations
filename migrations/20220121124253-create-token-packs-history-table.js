@@ -1,10 +1,8 @@
 'use strict';
 
-const moment = require('moment');
-
-let dbm;
-let type;
-let seed;
+var dbm;
+var type;
+var seed;
 
 /**
   * We receive the dbmigrate dependency from dbmigrate initially.
@@ -17,41 +15,49 @@ exports.setup = function (options, seedLink) {
 };
 
 exports.up = function (db, callback) {
-  db.createTable('users', {
+  db.createTable('token_packs_history', {
     columns: {
       id: { type: 'int', primaryKey: true, autoIncrement: true },
-      email: { type: 'string', notNull: true, unique: true },
-      username: { type: 'string', notNull: true, unique: true },
-      firstname: { type: 'string', notNull: true },
-      lastname: { type: 'string', notNull: true },
-      phone: { type: 'string', notNull: true, unique: true },
-      tokens: { type: 'int', notNull: true, default: 0 },
-      role_id:{
+      pack_id: {
         type: 'int',
         notNull: true,
         foreignKey: {
-          name: 'users_role_id_fk',
-          table: 'roles',
+          name: 'token_packs_history_pack_id_fk',
+          table: 'token_packs',
           rules: {
             onDelete: 'CASCADE',
             onUpdate: 'RESTRICT'
           },
           mapping: {
-            role_id: 'id'
+            pack_id: 'id'
           }
         }
       },
-      password: { type: 'string', notNull: true },
-      email_confirmed_at: { type: 'timestamp', notNull: false, },
+      user_id: {
+        type: 'int',
+        notNull: true,
+        foreignKey: {
+          name: 'token_packs_history_user_id_fk',
+          table: 'users',
+          rules: {
+            onDelete: 'CASCADE',
+            onUpdate: 'RESTRICT'
+          },
+          mapping: {
+            user_id: 'id'
+          }
+        }
+      },
+      pay_method: { type: 'string', length: 9, notNull: true},
       created_at: { type: 'string', notNull: true },
-      updated_at: { type: 'string', notNull: true },
+      updated_at: { type: 'string', notNull: true }
     },
     ifNotExists: true
   }, callback);
 };
 
 exports.down = function (db) {
-  db.dropTable('users');
+  db.dropTable('token_packs_history');
 };
 
 exports._meta = {
