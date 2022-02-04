@@ -40,6 +40,7 @@ exports.up = function (db, callback) {
       is_finished: { type: 'boolean', default: false },
       subscribe_price: { type: 'float', notNull: true },
       start_price: { type: 'float', notNull: true },
+      current_price: { type: 'float', notNull: true, defaultValue: 0 },
       max_size: { type: 'int', notNull: true },
       created_at: { type: 'string', notNull: true },
       updated_at: { type: 'string', notNull: true },
