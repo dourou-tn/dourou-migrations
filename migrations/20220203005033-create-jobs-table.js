@@ -19,9 +19,52 @@ exports.up = function (db, callback) {
     columns: {
       id: { type: 'int', primaryKey: true, autoIncrement: true },
       uiid: { type: 'string', notNull: true },
-      type: { type: 'string', notNull: true },
-      state: { type: 'string', notNull: true },
-      data: { type: 'json', notNull: true },
+      type_id: {
+        type: 'int',
+        notNull: true,
+        foreignKey: {
+          name: 'jobs_type_id_fk',
+          table: 'job_types',
+          rules: {
+            onDelete: 'CASCADE',
+            onUpdate: 'RESTRICT'
+          },
+          mapping: {
+            type_id: 'id'
+          }
+        }
+      },
+      state_id: {
+        type: 'int',
+        notNull: true,
+        foreignKey: {
+          name: 'jobs_state_id_fk',
+          table: 'job_states',
+          rules: {
+            onDelete: 'CASCADE',
+            onUpdate: 'RESTRICT'
+          },
+          mapping: {
+            state_id: 'id'
+          }
+        }
+      },
+      auction_id: {
+        type: 'int',
+        notNull: true,
+        foreignKey: {
+          name: 'jobs_auction_id_fk',
+          table: 'auctions',
+          rules: {
+            onDelete: 'CASCADE',
+            onUpdate: 'RESTRICT'
+          },
+          mapping: {
+            auction_id: 'id'
+          }
+        }
+      },
+      start_date: { type: 'timestamp', notNull: false },
       created_at: { type: 'timestamp', notNull: false },
       updated_at: { type: 'timestamp', notNull: false }
     },
