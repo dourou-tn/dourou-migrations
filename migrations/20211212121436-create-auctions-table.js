@@ -21,6 +21,7 @@ exports.up = function (db, callback) {
       uiid: { type: 'string', unique: true },
       description: { type: 'text', notNull: false },
       start_date: { type: 'timestamp', notNull: true },
+      end_date: { type: 'timestamp', notNull: true },
       duration: { type: 'int', notNull: true, defaultValue: 10 },
       product_id: {
         type: 'int',
